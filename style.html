@@ -126,7 +126,7 @@
 				var canvas = $(".cont .canvas");
 
 				var scene = new THREE.Scene();
-				var camera = new THREE.PerspectiveCamera(75, canvas.innerWidth() / canvas.innerHeight(), 0.1, 1000);
+				var camera = new THREE.PerspectiveCamera(75, canvas.innerWidth() / canvas.innerHeight(), 0.1, 100);
 				var renderer = new THREE.WebGLRenderer({ antialias: true });
 
 				$(window).resize(function () {
@@ -158,6 +158,8 @@
 				camera.position.x = 0;
 				camera.position.y = 0;
 				camera.position.z = 5;
+
+				cube.position.y = 0;
 
 				var render = function () {
 					requestAnimationFrame(render);
