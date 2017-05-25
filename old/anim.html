@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+		<link href="font/levserif/import.css" rel="stylesheet" type="text/css">
+
+		<script src="lib/require.js"></script>
+
+		<style>
+
+			.fullscr {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+			}
+			
+			.title {
+				display: inline-block;
+				width: auto;
+
+				position: absolute;
+				right: 0;
+				top: 0;
+
+				font-size: 5em;
+				padding: 3rem;
+
+				font-family: Lev Serif;
+				max-width: 100%;
+			}
+
+		</style>
+	</head>
+
+	<body style="overflow: hidden; margin: 0; background: #FAFAFA;">
+		<div class="fullscr">
+			<div class="canv vcenter" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;"></div>
+			<div class="title">Aquamade</div>
+		</div>
+	</body>
+
+	<script>
+		
+		require([ "lib/jquery", "lib/fallin", "lib/vcent" ], function (_, fallin, vcent) {
+			var scene = fallin.Scene(".canv");
+			var water = fallin.Water(scene);
+
+			scene.start();
+		});
+
+	</script>
+
+</html>

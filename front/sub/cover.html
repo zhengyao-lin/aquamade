@@ -1,0 +1,69 @@
+<style>
+	
+	.sub-cover {
+		height: 100%;
+		width: 100%;
+		background: rgba(253, 253, 253, 1);
+		text-align: center;
+	}
+
+	.link {
+		display: inline-block;
+	}
+
+	.sub-cover .main.title {
+		font-size: 4em;
+	}
+
+	.sub-cover .main.stone {
+		display: inline-block;
+		width: 10em;
+		height: 10em;
+		margin-top: 1rem;
+
+		cursor: pointer;
+	}
+
+</style>
+
+<div class="sub-cover">
+	<div class="vcenter link">
+		<div class="main title">
+		</div>
+		<div class="main stone"></div>
+	</div>
+</div>
+
+<script>
+	
+	function init(main, args, show, cont) {
+		require([ "lib/util", "lib/scene", "lib/stone" ], function (util, scene, stone) {
+			var sc1 = scene.init(main.find(".main.stone"), { background: "rgba(253, 253, 253, 1)" });
+			var st1 = stone.init(sc1);
+
+			sc1.start();
+
+			main.find(".vcenter").removeClass("vcenter");
+
+			main.find(".main.title").html(util.logo());
+
+			var rev = true;
+
+			main.find(".link").mouseenter(function () {
+				$(".main.title, .main.stone")
+					.transition({
+						animation: "pulse",
+						reverse: rev,
+						interval: 200
+					});
+
+				rev = !rev;
+			}).click(function () {
+				tbar.show();
+			});
+
+			show(true);
+		});
+	}
+
+</script>
